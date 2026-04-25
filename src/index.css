@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-verde: #2D4A3E;
+  --color-crema: #F5F0E8;
+  --color-arcilla: #C4773B;
+  --color-antracita: #2C2C2C;
+  --font-serif: "Georgia", serif;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out infinite -3s;
+  --animate-float-slow: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(-15px) scale(1);
+  }
+  50% {
+    transform: translateY(15px) scale(1.05);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
