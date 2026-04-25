@@ -417,33 +417,56 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-crema text-antracita font-sans flex flex-col items-center w-full relative">
-      {/* Barra fina superior */}
-      <div className="h-[32px] w-full flex items-center justify-center gap-8 text-[11px] font-medium tracking-wide border-b border-verde/10 bg-verde text-crema relative z-50">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
-          <div className="flex items-center gap-1.5 transition-opacity hover:opacity-80 cursor-default">
-            <MapPin className="w-3.5 h-3.5 text-arcilla" />
-            <span>[Ciudad, Región]</span>
+      {/* Barra superior completa */}
+      <div className="w-full bg-[#2D4A3E] text-crema relative z-50">
+        
+        {/* Version Desktop */}
+        <div className="hidden md:flex h-9 w-full items-center justify-center gap-8 text-[11px] font-medium tracking-wide border-b border-verde/10">
+          <div className="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-x-8 gap-y-2">
+            <div className="flex items-center gap-1.5 transition-opacity hover:opacity-80 cursor-default">
+              <MapPin className="w-3.5 h-3.5 text-arcilla" />
+              <span>[Ciudad, Región]</span>
+            </div>
+            
+            <div className="h-3.5 w-px bg-crema/30"></div>
+            
+            <a href="tel:+56900000000" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
+              <Phone className="w-3.5 h-3.5 text-arcilla" />
+              <span>+56 9 XXXX XXXX</span>
+            </a>
+            
+            <div className="h-3.5 w-px bg-crema/30"></div>
+            
+            <div className="flex items-center gap-1.5 transition-opacity hover:opacity-80 cursor-default">
+              <CheckCircle2 className="w-3.5 h-3.5 text-arcilla" />
+              <span>Presupuesto 100% gratis</span>
+            </div>
+            
+            <div className="h-3.5 w-px bg-crema/30"></div>
+            
+            <div className="flex items-center gap-1.5 transition-opacity hover:opacity-80 cursor-default">
+              <Clock className="w-3.5 h-3.5 text-arcilla" />
+              <span>Respuesta en menos de 24 hrs</span>
+            </div>
           </div>
-          
-          <div className="hidden md:block h-3.5 w-px bg-crema/30"></div>
-          
-          <a href="tel:+56900000000" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
-            <Phone className="w-3.5 h-3.5 text-arcilla" />
-            <span>+56 9 XXXX XXXX</span>
-          </a>
-          
-          <div className="hidden md:block h-3.5 w-px bg-crema/30"></div>
-          
-          <div className="flex items-center gap-1.5 transition-opacity hover:opacity-80 cursor-default">
-            <CheckCircle2 className="w-3.5 h-3.5 text-arcilla" />
-            <span>Presupuesto 100% gratis</span>
-          </div>
-          
-          <div className="hidden md:block h-3.5 w-px bg-crema/30"></div>
-          
-          <div className="flex items-center gap-1.5 transition-opacity hover:opacity-80 cursor-default">
-            <Clock className="w-3.5 h-3.5 text-arcilla" />
-            <span>Respuesta en menos de 24 hrs</span>
+        </div>
+
+        {/* Version Mobile Ticker */}
+        <div className="md:hidden h-[36px] w-full flex items-center overflow-hidden ticker-mask border-b border-verde/10 bg-[#2D4A3E]">
+          <div className="animate-ticker flex whitespace-nowrap text-[12px] font-medium tracking-wide items-center w-max">
+            {/* Duplicamos el contenido para el loop continuo suave */}
+            {[1, 2].map((i) => (
+              <div key={i} className="flex items-center gap-4 px-2 w-max shrink-0">
+                <span>📍 [Ciudad]</span>
+                <span className="text-arcilla px-1">·</span>
+                <span>📞 +56 9 XXXX XXXX</span>
+                <span className="text-arcilla px-1">·</span>
+                <span>✅ Presupuesto gratis</span>
+                <span className="text-arcilla px-1">·</span>
+                <span>⏱ Respuesta en 24 hrs</span>
+                <span className="text-arcilla px-1">·</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
